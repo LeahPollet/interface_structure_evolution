@@ -28,4 +28,3 @@ MSA/*.nt.fa (fasta file with sequence in 9 yeast species for various ORFs)
 MSA/*.nt.aln (ClustalW MSA file between 9 yeast species for various ORFs) 
 codon_alignment.txt (Combined MSA results for all ORFs, reformatted as a codon alignment)
 combined_aligned_seq_dict.pickle (Combined MSA results for all ORF, formatted as a pickled python dictionary)
-
