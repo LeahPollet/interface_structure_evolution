@@ -1,7 +1,7 @@
 -------------------------
 Description of external data files:
 -------------------------
-The files in this folder are the raw data used as input in this analysis. They are files automatically downloaded various databases by scripts in the pipeline and stored here with little to no processing.
+The files in this folder are the raw data used as input in this analysis. They are files automatically downloaded from various databases by scripts in the pipeline and stored here with little to no processing.
  
 PPI data :
 ----------
