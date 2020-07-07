@@ -33,6 +33,6 @@ Intermediary steps and results from ConSurf score calculations obtained from the
 
 clustal/dssp-2.0.4/paml4.9j:
 --------
-Local version of software and tools used in this analysis. Downloaded as per website instructions/
+Local version of software and tools used in this analysis. Downloaded as per website instructions
 
 Any additional information can be requested by email at leah.pollet@mail.mcgill.ca.
