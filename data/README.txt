@@ -24,7 +24,14 @@ Intermediary steps and results of the dN/dS calculations on residues in our PPI 
 - The RSA_distributions folder contains summary of the average values of RSA (monomer and complex RSA) for the residue bins.
 - The dnds folder contains the results of running dN/dS calculations on each residue bin. the *.dnds files contain summary statistics such as the number of bootstrap used, number of nucleotides used, mean and standard error for the dN/dS calculations.
 
-clustal/dssp-2.0.4/consurf/paml4.9j:
+consurf :
+------------------
+Intermediary steps and results from ConSurf score calculations obtained from the ConSurf database for this analysis.
+- The downloaded files are in the consurfDB_files
+- Input file used is in the input_file folder
+- Log files for both the download from the database and the match with structural models of PPIs are also available
+
+clustal/dssp-2.0.4/paml4.9j:
 --------
 Local version of software and tools used in this analysis. Downloaded as per website instructions/
 
