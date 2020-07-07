@@ -14,7 +14,7 @@ pdb_quality_control_results.csv (Quality control results on PDB files in this an
 curated_chains.txt (Curated list of chains for PDB files in this analysis)
 pdb_lengths.csv (Structure and sequence lengths for PDB files in this analysis)
 
-Alignment data :
+Alignment data : 
 ----------
 blast_scer_vs_pdb.txt (Results of BLAST alignment between S.cere and PDB sequences)
 scer_pdb_homologs.txt (Reformatted mapping between S.cere ORF names and PDBid/chain ids)
@@ -25,4 +25,4 @@ Structural models :
 ----------
 modeled_proteins.pkl (Structural models of PPIs in this analysis in a pickled python dictionnary format)
 
-Any additional information can be requested by email at leah.pollet@mail.mcgill.ca.
+Any additional information can be requested by email at leah.pollet@mail.mcgill.ca. 
