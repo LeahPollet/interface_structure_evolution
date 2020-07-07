@@ -1,0 +1,11 @@
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/distance_from_center
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/rsa_monomer/rsa_monomer_all
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/rsa_monomer/rsa_monomer_non_interfacial
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/rsa_monomer/rsa_monomer_interfacial
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/drsa
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/rsa_complex/rsa_complex_non_interfacial
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/rsa_complex/rsa_complex_interfacial
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/rsa_complex/rsa_complex_all
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/residueContacts
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/distance_from_edges
+../../data/evolutionary_rates/modeled_proteins.pkl/binned_codons/100_random_bins

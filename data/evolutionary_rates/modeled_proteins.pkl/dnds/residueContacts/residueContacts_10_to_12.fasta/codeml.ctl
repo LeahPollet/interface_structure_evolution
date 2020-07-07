@@ -1,0 +1,10 @@
+seqfile = temp.nuc
+outfile = temp.out
+treefile = tree
+noisy = 0
+verbose = True
+runmode = 0
+seqtype = 1
+model = 0
+getSE = 0
+cleandata = 0
