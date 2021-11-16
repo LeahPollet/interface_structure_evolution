@@ -4,10 +4,12 @@ from tqdm import tqdm
 from Bio import PDB, SeqIO
 
 """
+Step 2 in the pipeline - 
 Generates a aa and residue length summary file for a list of PDBs 
 
-Input   = pdb_reduced.faa (AA sequence and pdbID of all S.cere proteins in fasta format)
-Output  = pdb_lengths.csv (Format: pdb,chain,struct_length,seq_length)
+Input:  pdb_reduced.faa (AA sequence and pdbID of all proteins in the analysis in fasta format)
+        assemblies (folder with the curated, quality controled PDB files for the analysis)
+Output: pdb_lengths.csv (Format: pdb,chain,struct_length,seq_length)
 
 Output file used in build_protein_models.py
 
