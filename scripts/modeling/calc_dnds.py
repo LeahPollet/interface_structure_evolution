@@ -22,18 +22,10 @@ tree = '../../data/external/yeasts.tree'
 
 
 def download_codeml():
-	"""
-	Downloads and compiles codeml for macosx
-
-	Returns: 
-		absolute_path (str): path to the installed codeml executable
-
-	Useful if codeml is not compiling properly, or to install on other OS:
-	http://abacus.gene.ucl.ac.uk/software/paml.html
-
-	"""
-	oPath = "../../data"
+	
+	oPath = "../data"
 	url = "http://abacus.gene.ucl.ac.uk/software/paml4.9j.tgz"
+	# useful if not compiling properly: http://abacus.gene.ucl.ac.uk/software/paml.html
 
 	zipped = oPath+"/"+os.path.basename(url)
 	path = oPath+"/"+os.path.basename(url)[:8]
@@ -76,48 +68,62 @@ def read_dir_list(fPath, fastaDir):
 	return dirs
 
 def ignore_files(dir, files):
-	""" Ignore function, to copy a directory structure without the files in it """
+	""" Ignore function, to copy a directory structure without the files in it 
+	https://stackoverflow.com/questions/15663695/shutil-copytree-without-files """
 	return [f for f in files if os.path.isfile(os.path.join(dir, f))]
 
 def main():
-	"""Submit dN/dS calculation jobs to computing cluster/ local computations.
+
+	"""Submit dN/dS calculation jobs to computing cluster.
 
 	Directories to submit jobs for are listed in a separate text file.
 	A single job is submitted for each fasta file.
 
 	"""
-	
+	# 1) Download codeml
 	path_to_codeml = download_codeml()
 	print(path_to_codeml)
- 
-	with open(tree, 'w') as f:
-		f.write(relationship)
 
-	nBootstraps = '100'
+	# 2) Set up
+	path_closely_related = '../data/processed/modeled_ppis.pkl'
+	# path_additional_closely_related = '../data/processed/modeled_ppis_additional_closely_related.pkl'
+	path_additional_distantly_related = '../data/processed/modeled_ppis_additional_distantly_related.pkl'
 
-	modelName = "modeled_proteins.pkl"
-	dir = '../../data/evolutionary_rates/'+modelName
+	name_closely_related= ""
+	# name_additional_closely_related ="_AdditionalCloseSpecies"
+	name_additional_distantly_related ="_AdditionalDistantSpecies"
 
-	fastaDir = os.path.join(dir, 'binned_codons')
-	dndsDir = os.path.join(dir, 'dnds')
-	if not os.path.exists(dndsDir): # Copy full directory structure of the fasta dir to the dnds directory, but without the files!
-		shutil.copytree(fastaDir,dndsDir, ignore=ignore_files)
+	# 3) Select the model we are running calculations for
+	modelPath = path_additional_distantly_related
+	name = name_additional_distantly_related
 	
-	dirs = read_dir_list(os.path.join(fastaDir,'dir_list.txt'), fastaDir) # List of the paths to the folders containing the fasta file of interest
-	
+	# 4) Set up
+	tree = "../data/external/yeasts"+name+".tree"
+	OUT_DIR = '../data/evolutionary_rates'+name
+	FASTA_DIR = os.path.join(OUT_DIR, 'binned_codons')
+	DNDS_DIR = os.path.join(OUT_DIR, 'dnds')
+	if not os.path.exists(DNDS_DIR): # Copy full directory structure of the fasta dir to the dnds directory, but without the files!
+		shutil.copytree(FASTA_DIR,DNDS_DIR, ignore=ignore_files)
+
+	# Select the folder we are running calculations for
+	# When running for additional models:
+	# only run name_additional_distantly_related, only run with low boot number
+	nBootstraps = '5'
+	dirs = read_dir_list(os.path.join(FASTA_DIR,'dir_list8.txt'), FASTA_DIR)
 	nJobs = 0
 
 	for dir in dirs:
 		files = os.listdir(dir)
-		subDir = dir.replace(fastaDir + '/', '')
+		subDir = dir.replace(FASTA_DIR + '/', '')
 		print ("---------------------------")
 		print (">>>", subDir)
 		print ("---------------------------")
-		for f in tqdm(files):
+		for f in files:
 			print ("\n")
 			print ("	>>>", f)
 			print ("	---------------------------")
 			
+
 			# Path to the fasta file
 			fastaPath = os.path.join(dir, f)
 			# Path to the corresponding dnds file:
@@ -159,6 +165,7 @@ def main():
 
 	print ('submited ', nJobs, ' jobs')
 
-
+	return
+	
 if __name__ == '__main__':
 	main()
