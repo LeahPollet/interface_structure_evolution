@@ -13,7 +13,8 @@ Download the 'scripts' folder into a local directory of your choosing (here inte
 	python pdb_coverage.py
 	python build_protein_models.py
 #Evolutionary rate calculations
-	python consurf.py
+	python consurfDB.py
+	python rate4site.py
 	python bin_codons.py 
 	python calc_dnds.py
 #Set up for plotting	
