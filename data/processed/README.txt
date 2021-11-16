@@ -26,3 +26,4 @@ Structural models :
 modeled_proteins.pkl (Structural models of PPIs in this analysis in a pickled python dictionnary format)
 
 Any additional information can be requested by email at leah.pollet@mail.mcgill.ca. 
+
